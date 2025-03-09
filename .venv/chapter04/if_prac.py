@@ -21,3 +21,21 @@
     2. 비밀번호가 일치할 때 -> 비밀번호가 일치합니다!
     3. 비밀번호가 불일치 할 때 -> 비밀번호가 불일치합니다!
 """
+origin_password = "aaa123"
+input_password = input("비밀번호를 입력하세요 >>> ")
+
+''' 잘못된 예시
+if origin_password == input_password:
+    print("비밀번호가 일치합니다!")
+elif origin_password != input_password:
+    print("비밀번호가 불일치합니다!")
+else:
+    print("비밀번호를 입력해주세요!")
+'''
+
+if input_password == "":
+    print("비밀번호를 입력해주세요!")
+elif input_password == origin_password:
+    print("비밀번호가 일치합니다!")
+else:
+    print("비밀번호가 불일치합니다!")
