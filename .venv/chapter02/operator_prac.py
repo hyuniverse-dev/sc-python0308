@@ -20,3 +20,37 @@ units = (?)  # 일의 자리를 구합니다.
 print("십의 자리:", tens)
 print("일의 자리:", units)
 '''
+
+number = 45
+
+tens = number // 10
+units = number % 10
+
+print("십의 자리: ", tens)
+print("일의 자리: ", units)
+
+'''
+1분은 60초이고, 1시간은 60분입니다 따라서 1시간은 3600초입니다.
+3690 초를 시, 분, 초로 변환하여 출력하는 프로그램을 구현하세요.
+
+# total_seconds을 선언하고 초기화 합니다.
+total_seconds = 3690
+
+# 시간, 분, 초를 계산합니다.
+hours = (?)  # 시간을 구합니다.
+left_seconds = (?)  # 시간을 제외한 나머지 초를 구합니다.
+minutes = (?) # 분을 구합니다.
+seconds = (?) # 초를 구합니다.
+
+# 결과를 출력합니다.
+print("시:", hours)
+print("분:", minutes)
+print("초:", seconds)
+'''
+
+
+
+
+
+
+
