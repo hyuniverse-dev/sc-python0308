@@ -17,7 +17,16 @@
 """
 
 # 데이터 입력 받기: 총 3번
+number1 = int(input("첫 번째 숫자를 입력해주세요 >>> "))
+number2 = int(input("두 번째 숫자를 입력해주세요 >>> "))
+number3 = int(input("세 번째 숫자를 입력해주세요 >>> "))
 
 # 1번 숫자와 2번 숫자 비교 + 1번 숫자와 3번 숫자 비교 --- 조건식(1)
 # 2번 숫자와 1번 숫자 비교 + 2번 숫자와 3번 숫자 비교 --- 조건식(2)
 # 그외에는 3번이 가장 큰수 --- 나머지
+if number1 > number2 and number1 > number3:
+    print(f"가장 큰 수는 {number1}입니다.")
+elif number2 > number1 and number2 > number3:
+    print(f"가장 큰 수는 {number2}입니다.")
+else:
+    print(f"가장 큰 수는 {number3}입니다.")
