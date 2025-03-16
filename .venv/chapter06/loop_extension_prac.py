@@ -31,12 +31,12 @@
 9 x 7 = 63
 9 x 8 = 72
 9 x 9 = 81
-
-
-for (?) in (?):  # 외부 루프: 2단부터 9단까지 반복
-    print(f"(?)단")
-    for second_number in range(1, 10):  # 내부 루프: 1부터 9까지 반복
-        result = (?) * (?)
-        print(f"(?) x (?) = {result}")
-    print()  # 각 구구단 출력 후 빈 줄 추가
 """
+
+
+for first_number in range(2, 10):  # 외부 루프: 2단부터 9단까지 반복
+    print(f"{first_number}단")
+    for second_number in range(1, 10):  # 내부 루프: 1부터 9까지 반복
+        result = first_number * second_number
+        print(f"{first_number} x {second_number} = {result}")
+    print()  # 각 구구단 출력 후 빈 줄 추가
