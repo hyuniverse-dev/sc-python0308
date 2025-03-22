@@ -65,7 +65,7 @@ def find_max_min_value(numbers: list):
     min_value = min(numbers)
 
     # 결과값을 반환
-    return [max_value, min_value]
+    return max_value, min_value # [max_value, min_value] 리스트 반환
 
 
 # 사용자로부터 입력받을 받는 무한루프
@@ -86,7 +86,7 @@ while True:
             break
 
 # 최대/최소값 구하는 find_max_min_value() 호출해서 결과 반환
-res = find_max_min_value(numbers)
+max_value, min_value = find_max_min_value(numbers)
 
 # 결과를 반환받고 출력
-print(f"최대값: {res[0]}, 최소값: {res[1]}")
+print(f"최대값: {max_value}, 최소값: {min_value}")
