@@ -18,6 +18,6 @@ while True:
         if is_logged:
             auth.mypage_menu()
     elif user_input == "3":
-        pass
+        break
     else:
         print("메뉴를 다시 선택해주세요.\n")

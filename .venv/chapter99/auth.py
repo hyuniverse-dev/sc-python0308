@@ -82,7 +82,12 @@ def mypage_menu():
         if user_input == "1":
             user_info()
         elif user_input == "2":
-            pass
+            # 전역 변수를 초기상태로 되돌려서 탈퇴된 것 처럼 처리한다.
+            global user_id
+            user_id = ""
+            global user_password
+            user_password = ""
+
         elif user_input == "3":
             break
         else:
