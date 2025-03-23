@@ -4,6 +4,8 @@
 웰컴투파이썬 프로그램에 필요한 함수를 정의한 소스파일이다.
 """
 
+user_id = ""
+user_password = ""
 
 # 메인 메뉴를 출력하는 함수
 def print_main_menu():
@@ -41,15 +43,23 @@ def signup():
     input_password = input("비밀번호를 입력하세요 >>> ")
 
     if input_id and input_password:
+        global user_id
+        user_id = input_id
+        global  user_password
+        user_password = input_password
         print("회원가입이 완료되었습니다.")
     else:
         print(f"아이디와 비밀번호를 확인해주세요. (아이디:{input_id} / 비밀번호:{input_password})")
 
-    return input_id, input_password
-
 
 # 로그인 함수
-def signin(user_id: str, user_password: str):
+def signin():
+
+    # 전역 변수 user_id 또는 user_password 중 하나라도 빈 문자열이면 False 반환
+    if not user_id or not user_password:
+        print("회원가입을 진행하세요.\n")
+        return False
+
     input_id = input("아이디를 입력하세요 >>> ")
     input_password = input("비밀번호를 입력하세요 >>> ")
 
@@ -70,7 +80,7 @@ def mypage_menu():
         user_input = input("메뉴를 선택하세요 >>> ")
 
         if user_input == "1":
-            pass
+            user_info()
         elif user_input == "2":
             pass
         elif user_input == "3":
@@ -81,9 +91,13 @@ def mypage_menu():
 
 # 사용자 정보를 출력하는 함수
 def user_info():
-    pass
+    """
+    회원님의 아이디: 000, 회원님의 비밀번호: 000
+    """
+    print(f"회원님의 아이디: {user_id}, 회원님의 비밀번호: {user_password}")
 
 
 if __name__ == "__main__":
     # print_main_menu()
-    signup()
+    # signup()
+    user_info()
