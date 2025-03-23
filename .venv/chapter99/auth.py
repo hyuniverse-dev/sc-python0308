@@ -3,9 +3,11 @@
 
 웰컴투파이썬 프로그램에 필요한 함수를 정의한 소스파일이다.
 """
+from turtledemo.penrose import start
 
 user_id = ""
 user_password = ""
+
 
 # 메인 메뉴를 출력하는 함수
 def print_main_menu():
@@ -33,7 +35,7 @@ def print_mypage_menu():
     menus = ["회원정보 조회", "회원 탈퇴하기", "홈으로"]
     print("<마이페이지>")
     # 반복문을 사용해서 메뉴 출력
-    for index, menu, in enumerate(menus):
+    for index, menu, in enumerate(menus, start=1):
         print(f"{index}.{menu}")
 
 
@@ -45,7 +47,7 @@ def signup():
     if input_id and input_password:
         global user_id
         user_id = input_id
-        global  user_password
+        global user_password
         user_password = input_password
         print("회원가입이 완료되었습니다.")
     else:
@@ -54,7 +56,6 @@ def signup():
 
 # 로그인 함수
 def signin():
-
     # 전역 변수 user_id 또는 user_password 중 하나라도 빈 문자열이면 False 반환
     if not user_id or not user_password:
         print("회원가입을 진행하세요.\n")
@@ -87,7 +88,7 @@ def mypage_menu():
             user_id = ""
             global user_password
             user_password = ""
-
+            return
         elif user_input == "3":
             break
         else:
