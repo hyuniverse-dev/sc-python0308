@@ -45,7 +45,7 @@ print(items)
 keys = my_dic.keys()
 print(keys)
 
-# value()
+# values()
 #   모든 값을 리스트 형태로 반환한다.
 values = my_dic.values()
 print(values)
