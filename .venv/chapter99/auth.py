@@ -3,7 +3,6 @@
 
 웰컴투파이썬 프로그램에 필요한 함수를 정의한 소스파일이다.
 """
-from turtledemo.penrose import start
 
 user_id = ""
 user_password = ""
