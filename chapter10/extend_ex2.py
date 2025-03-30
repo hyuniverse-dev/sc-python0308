@@ -15,6 +15,7 @@ class Person:
     def introduce(self):
         return f"안녕하세요. 제 이름은 {self.name}입니다. 저는 {self.age}살 입니다."
 
+
 # 자식 클래스-1
 class Student(Person):
     # 생성자
@@ -27,17 +28,23 @@ class Student(Person):
     # 메소드
     def get_sum(self):
         return self.korean + self.math + self.english
-    
+
     # 메소드 오버라이드
     def introduce(self):
         return f"{super().introduce()} - 저는 학생입니다."
 
-# Teacher 자식 클래스 선언 - Person 클래스 상속
 
-#   subject 멤버 필드를 추가
+# Teacher 자식 클래스 선언 - Person 클래스 상속
+class Teacher(Person):
+    def __init__(self, name, age, gender, subject):
+        #   subject 멤버 필드를 추가
+        super().__init__(name=name, age=age, gender=gender)
+        self.subject = subject
 
 #   introduce() 메소드 오버라이딩
 #   : super().introduce() - 저는 강사입니다. 담당 과목은 00입니다.
+    def introduce(self):
+        return f"{super().introduce()} - 저는 강사입니다. 담당 과목은 {self.subject} 입니다."
 
 
 ###########
@@ -47,11 +54,7 @@ print(student.introduce())
 print(student.get_sum())
 
 # Teacher 인스턴스 생성
+teacher = Teacher("영철", 40, "남자", "파이썬")
+
 # introduce() 메소드 호출
-
-
-
-
-
-
-
+print(teacher.introduce())
