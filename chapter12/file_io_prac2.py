@@ -19,23 +19,34 @@
 
 2. filter_words = [”바보”, “멍청이”]일 경우 프로그램 출력은 다음과 같아야 합니다.
   오늘도 ** 같아요. *** 같다고 느껴져요.
+'''
 
 # 파일 열기
-with open('(     빈칸     )', '(     빈칸     )', encoding='(     빈칸     )') as file:
+with open('C:\sc-python0308-main\data\금칙어.txt', 'rt', encoding='utf-8') as file:
     # 금칙어 목록
-    filter_words = ['바보', '멍청이']
+    # filter_words = ['바보', '멍청이', '실수']
 
+    # 사용자로부터 입력을 받은 단어를 별표 처리하기
+    filter_words = []
+
+    while True:
+        user_input = input("금칙어를 입력하세요 >>> ")
+
+        if not user_input:
+            break
+
+        filter_words.append(user_input)
     # 파일 내용 읽기
-    content = (     빈칸     )
+    content = file.read() # 텍스트 파일 안의 데이터를 하나의 문자열로 반환
 
     # 금칙어 필터링
-    for (     빈칸     ) in (     빈칸     ):
-        content = content.replace((     빈칸     ), '*' * (     빈칸     ))
+    for item in filter_words:
+        content = content.replace(item, '*' * len(item))
 
     # 필터링된 내용 출력
     print("필터링된 내용:")
     print(content)
-'''
+
 
 ##### replace() 예시
 message = "안녕하세요."
