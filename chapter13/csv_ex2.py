@@ -31,15 +31,14 @@ with open("../data/상품.csv", "wt", newline="", encoding="utf-8") as file:
 #   2. 현재 상품 가격을 기준으로 상품을 모두 판매했을 때 예상 매출을 구하세요.
 with open("../data/상품.csv", "rt", newline="", encoding="utf=8") as file:
     csv_reader = csv.reader(file)
-
-    # 헤더를 제거
+    
+    # 리스트 타입 캐스팅
     csv_reader = list(csv_reader) # csv_reader 객체를 list로 타입캐스팅
 
     total_quantity = 0
     total_price = 0
 
-    for item in csv_reader[1:]:
-        print(item)
+    for item in csv_reader[1:]: # 헤더를 제거하고 반복 수행
         total_price += int(item[1]) * int(item[2]) # int 타입캐스팅 -> 산술연산 필요
         total_quantity += int(item[2]) # int 타입캐스팅 -> 산술연산 필요
 
