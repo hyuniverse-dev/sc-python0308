@@ -33,7 +33,7 @@ with open("../data/subway.csv", "r", encoding="utf-8") as file:
     user_input = int(input("검색할 월을 입력하세요 >>> "))
 
     # 1 ~ 9월까지는 앞에 0을 붙여주고 그게 아니면 2자리 수를 그대로 사용
-    if 1 <= user_input <= 9 :
+    if 1 <= user_input <= 9:
         user_input = f"0{user_input}"
 
     for row in csv_reader:
@@ -51,3 +51,33 @@ with open("../data/subway.csv", "r", encoding="utf-8") as file:
             max_station_name = station_name
 
     print(f"2023-{user_input}월에 가장 많은 승하차 인원을 가진 역: {max_station_name}({max_count}명)")
+
+# 3. 모든 월에 대해 최대 승하차 인원을 가진 역 찾기
+
+monthly_max_station = {}
+monthly_max_station_list = []
+
+with open("../data/subway.csv", "r", encoding="utf-8") as file:
+    csv_reader = csv.reader(file)
+    next(csv_reader)
+
+    for row in csv_reader:
+        station_name = row[3]
+        transport_date = row[4]
+        passenger_count = int(row[5])
+
+        # 각 월에 대해 최대 승하차 역 찾기
+        if transport_date not in monthly_max_station or passenger_count > monthly_max_station[transport_date][
+            "passenger"]:
+            monthly_max_station[transport_date] = {
+                "station": station_name,
+                "passenger": passenger_count
+            }
+            monthly_max_station_list.append({
+                "station": station_name,
+                "passenger": passenger_count
+            })
+    
+    # 딕셔너리 내부의 값을 언패킹하여 사용하기
+    for month, data in monthly_max_station.items():
+        print(f"{month}월: {data['station']}({data['passenger']})")
