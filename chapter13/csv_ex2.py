@@ -7,6 +7,8 @@ csv 모듈 사용하기
 '''
 import csv
 
+from chapter08.dic_ex4 import items
+
 # csv 모듈로 파일 읽기
 with open("../data/members.csv", "rt", encoding="utf-8") as file:
     csv_reader = csv.reader(file, delimiter=",")
@@ -27,3 +29,18 @@ with open("../data/상품.csv", "wt", newline="", encoding="utf-8") as file:
 # 상품.csv 파일을 읽어와서 다음 작업을 처리하세요.
 #   1. 현재 상품의 총 수량을 구하세요.
 #   2. 현재 상품 가격을 기준으로 상품을 모두 판매했을 때 예상 매출을 구하세요.
+with open("../data/상품.csv", "rt", newline="", encoding="utf=8") as file:
+    csv_reader = csv.reader(file)
+
+    # 헤더를 제거
+    csv_reader = list(csv_reader) # csv_reader 객체를 list로 타입캐스팅
+
+    total_quantity = 0
+    total_price = 0
+
+    for item in csv_reader[1:]:
+        print(item)
+        total_price += int(item[1]) * int(item[2]) # int 타입캐스팅 -> 산술연산 필요
+        total_quantity += int(item[2]) # int 타입캐스팅 -> 산술연산 필요
+
+    print(f"총 수량: {total_quantity}, 총 예상 매출: {total_price}")
