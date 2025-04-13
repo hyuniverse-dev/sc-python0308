@@ -17,7 +17,7 @@ def send_email(receiver: str, subject: str, body: str):
     message["From"] = sender
     message["To"] = receiver
     message["Subject"] = subject
-    mime_text = MIMEText(body, 'plain')
+    mime_text = MIMEText(body, 'html')
     message.attach(mime_text)
 
     try:
@@ -163,5 +163,4 @@ def get_template(numbers: list, current_date: str):
 
 if __name__ == "__main__":
     template = get_template([1, 2, 3, 4, 5, 6], "2025-04-13")
-    print(template)
-    # send_email("hyuniverse.dev@gmail.com", "테스트 메일", "테스트 본문")
+    send_email("hyuniverse.dev@gmail.com", "이메일 탬플릿 사용하기", template)
