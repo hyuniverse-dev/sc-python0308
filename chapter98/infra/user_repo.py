@@ -41,6 +41,19 @@ def find(id: str, password: str):
     # return User("unknown", "unknown1234", "unknown", "unknown@email.com") --- AttributeError 단순하게 처리하는 방법(1)
 
 
+def remove(id: str, password: str):
+    try:
+        users = load_data_fromjson(USER_FILE_PATH)
+    except FileNotFoundError:
+        raise ValueError(f"{id}은/는 존재하지 않습니다.")
+
+    for user in users:
+        if user.get("id") == id and user.get("password") == password:
+            users.remove(user)
+
+    save_data_tojson(USER_FILE_PATH, users)
+
+
 # 공통 함수 -> JSON 파일에 데이터를 저장할 때 공통으로 호출해서 사용하는 함수
 def save_data_tojson(file_path: str, data):
     with open(file_path, "w", encoding="utf-8") as file:

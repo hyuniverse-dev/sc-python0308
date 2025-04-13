@@ -38,6 +38,24 @@ def sign_in():
         print(e)
 
 
+# 유저를 삭제하는 함수
+def withdraw():
+    id = input("아이디 >>> ")
+    password = input("비밀번호 >>> ")
+    try:
+        remove(id, password)
+    except ValueError as e:
+        print(e)
+
 if __name__ == "__main__":
     # sign_up()
-    sign_in()
+    # sign_in()
+    withdraw()
+
+
+
+
+
+
+
+
