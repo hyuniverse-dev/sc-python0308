@@ -47,15 +47,8 @@ def withdraw():
     except ValueError as e:
         print(e)
 
+
 if __name__ == "__main__":
     # sign_up()
     # sign_in()
     withdraw()
-
-
-
-
-
-
-
-
