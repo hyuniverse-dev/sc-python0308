@@ -78,12 +78,19 @@ def open_lotto_window():
     root = create_screen("로또 번호 발송하기")
 
     # receiver 입력 받기
+    email = tk.Label(root, text="이메일을 입력하세요.")
+    email_entry = tk.Entry(root)
+    email.pack(pady=10)
+    email_entry.pack(pady=10)
 
     button_frame = tk.Frame(root)
     button_frame.pack(pady=10)
 
     # 로또 번호 이메일 발송하기 버튼 생성
-    lotto_button = tk.Button(button_frame, text="이메일 발송하기", command=lambda: send_lotto_numbers()) # 로또 번호를 추출하여 send_email 함수 호출 + receiver 파라미터 넘기기
+    lotto_button = tk.Button(button_frame, text="이메일 발송하기",
+                             command=lambda: send_lotto_numbers(
+                                 email_entry.get()
+                             ))  # 로또 번호를 추출하여 send_email 함수 호출 + receiver 파라미터 넘기기
     lotto_button.pack(side="left", pady=100, padx=10)
 
     # 닫기 버튼 생성

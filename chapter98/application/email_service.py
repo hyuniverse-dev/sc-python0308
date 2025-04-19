@@ -10,11 +10,11 @@ import time
 from chapter98.application.lotto_service import store_numbers
 
 
-def send_lotto_numbers(): # receiver 파라미터 추가
+def send_lotto_numbers(email: str):  # receiver 파라미터 추가
     strftime = time.strftime("%Y-%m-%d")
     numbers = store_numbers()
     template = get_template(numbers, strftime)
-    send_email("hyuniverse.dev@gmail.com", "GUI 구현한 이메일 발송 기능", template)
+    send_email(email, "GUI 구현한 이메일 발송 기능", template)
 
 
 def send_email(receiver: str, subject: str, body: str):
