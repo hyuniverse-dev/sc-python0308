@@ -10,7 +10,7 @@ import time
 from chapter98.application.lotto_service import store_numbers
 
 
-def send_lotto_numbers():
+def send_lotto_numbers(): # receiver 파라미터 추가
     strftime = time.strftime("%Y-%m-%d")
     numbers = store_numbers()
     template = get_template(numbers, strftime)
