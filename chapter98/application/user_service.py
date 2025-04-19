@@ -3,19 +3,12 @@
 위치: chapter98/application
 '''
 
-from chapter98.domain.user import User
 from chapter98.infra.user_repo import *
-from chapter99.auth import signin
 
 
 # 회원가입을 수행하는 함수
-def sign_up():
+def sign_up(id: str, password: str, name: str, email: str):
     try:
-        id = input("아이디 >>> ")
-        password = input("비밀번호 >>> ")
-        name = input("이름 >>> ")
-        email = input("이메일 >>> ")
-
         user = User(id, password, name, email)
         save(user)  # 사용자 정보 저장
     except ValueError as e:

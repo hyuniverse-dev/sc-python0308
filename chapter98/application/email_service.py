@@ -5,6 +5,16 @@
 import smtplib
 from email.mime.multipart import MIMEMultipart  # 이메일 내용 작성을 위한 import
 from email.mime.text import MIMEText
+import time
+
+from chapter98.application.lotto_service import store_numbers
+
+
+def send_lotto_numbers():
+    strftime = time.strftime("%Y-%m-%d")
+    numbers = store_numbers()
+    template = get_template(numbers, strftime)
+    send_email("hyuniverse.dev@gmail.com", "GUI 구현한 이메일 발송 기능", template)
 
 
 def send_email(receiver: str, subject: str, body: str):
@@ -158,7 +168,6 @@ def get_template(numbers: list, current_date: str):
 </body>
 </html>
 """
-
 
 
 if __name__ == "__main__":
